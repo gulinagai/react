@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
+    <div id="app"></div>
+
     
+    <script type="text/babel">
+    
+    // usando Composição, function component e class component e componentes:
+    function App() {
+            const numero = Math.floor(Math.random() * 1000)            
+            return (
+                <div>
+                    {numero}
+                    <MainNav />
+                    <Button />    
+                </div>
+            )
+        }
+        function handleClick() {
+            console.log('clicou')
+        }
+
+        function Button() {
+            return <button onClick={handleClick}>Comprar</button>
+        }
+
+        // class Button extends React.Component {
+        //     render() {
+        //         return <button>Comprar</button>
+        //     }
+        // }
+
+        function MainNav() {
+            return (
+                <nav>
+                    <a href="#">Produto</a>
+                    <Button />    
+                </nav>
+            )
+        }
+
+        // usando Eventos:
+
+        function comprar() {
+            alert(`Comprou ${event.target.innerText}`)
+        }
+
+        function Produto() {
+            return (
+                <div>
+                    <button onClick={comprar}>Camisa</button>
+                    <button onClick={comprar}>Short</button>
+                </div>
+            )
+        }
+
+        // usando Hooks:
+
+        function Compras() {
+            // .useState() é um Hook que define uma variável reativa
+            // o .useState()  é um método do objeto React
+            // o único argumento passado é o valor inicial do estado
+            
+            // React.useState() retorna uma array com 0 e 1 de index; para 
+            // 0 é o valor inicial do estado passado, e 1, a função que 
+            // faz a atualização do estado.
+
+            // Usa a desestruturação para jogar esses valores da array em variáveis.
+            const [count, setCount] = React.useState(0)
+            console.log(count, setCount)
+
+            const compra = () =>{
+                setCount(count + 1)
+            }
+
+            return (
+                <div>
+                    <button onClick={compra}>Comprar: {count}</button>
+                    <p>Total: {count}</p>
+                    <p>Preço: R$ {count * 250}</p>
+                </div>
+            )
+        }
+
+
+
+        ReactDOM.createRoot(document.getElementById('app')).render(<Compras />)
+
+    </script>
 </body>
 </html>
