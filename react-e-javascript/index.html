@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <button id="comprar">Comprar</button>
+    <div>Total <span id="total"></span></div>
+    <div>Preço: R$ <span id="preco"></span></div>
+
+    <div id="app"></div>
+    <script>
+
+        const total = document.querySelector('#total')
+        const preco = document.querySelector('#preco')
+        const button = document.querySelector('#comprar')
+        let contador = 1
+
+        function mudarDOM(contador) {
+            total.innerText = contador
+            preco.innerText = contador * 30
+        }
+
+        function ativarContador () {
+            contador = contador + 1
+            mudarDOM(contador)
+        }
+        mudarDOM(contador)
+
+        button.addEventListener('click', ativarContador)
+        
+
+    </script>
+    <script type="text/babel">
+
+
+       
+
+       const Compras = () => {
+           
+            const comprar = () => {
+            return setCount(count + 1)
+        }
+             const [count, setCount] = React.useState(1)
+
+            return (<div>
+                <button onClick={comprar}id="comprar-react">Comprar</button>
+                    <div>Total <span id="total-react">{count}</span></div>
+                    <div>Preço: R$ <span id="preco-react">{count * 30}</span></div>
+                </div>)
+        }
+
+        ReactDOM.createRoot(document.querySelector('#app')).render(<Compras />)
+    </script>
+</body>
