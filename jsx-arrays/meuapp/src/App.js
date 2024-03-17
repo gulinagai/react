@@ -1,49 +1,56 @@
 import React, { useLayoutEffect } from 'react'
 
-// Array na tela:
 
-// const App = () =>{
-//     const produtos = ['Notebook', 'Smartwatch', 'Tablet']
-//     return <div>{produtos}</div>
-// }
+// Organize os produtos como mostrado no vídeo
+// Mostre apenas produtos que forem mais caros que R$ 1500
 
-// Todo elemento html precisa de uma key:
-// const App = () =>{
-//   const empresas = [<li key="a">Santander</li>, <li key="b">Google</li>]
-//     return <ul>{empresas}</ul>
-// }
-
-
-// Map para retornar 1 elemento para cada item da Array:
-
-// const App = () =>{
-//    const filmes = ['Before Sunset', 'Before Sunrise', 'Before Midnight']
-//    return (
-//     <ul>
-//         {filmes.map((filme)=> (
-//           <li key={filme}>{filme}</li>
-//         ))}
-//     </ul>
-//    )
-// }
-
-// Array de Objetos(mais comum do dia-a-dia):
-
-const App = () => {
-    const livros = [
-        {nome: 'A Game of Thrones', ano: 1996 },
-        {nome: 'A Clash of kings', ano: 1998 },
-        {nome: 'A Storm of Swords', ano: 2000 }
-    ]
+const produtos = [
+    {
+      id: 1,
+      nome: 'Smartphone',
+      preco: 'R$ 2000',
+      cores: ['#29d8d5', '#252a34', '#fc3766'],
+    },
+    {
+      id: 2,
+      nome: 'Notebook',
+      preco: 'R$ 3000',
+      cores: ['#ffd045', '#d4394b', '#f37c59'],
+    },
+    {
+      id: 3,
+      nome: 'Tablet',
+      preco: 'R$ 1500',
+      cores: ['#365069', '#47c1c8', '#f95786'],
+    },
+  ];
+  
+  const App = () => {
     return (
+    <section>
+       {
+       produtos
+       .filter((produto)=> {
+       return +produto.preco.replace('R$', '') > 1500
+       })
+       .map((produto)=>{
+        return (
+        <div key={produto.id}>
+        <h1>{produto.nome}</h1>
+        <p>Preço: {produto.preco}</p>
         <ul>
-            {livros
-            .filter(({ano})=> ano >= 1998)
-            .map(({nome, ano})=> (
-            <li key={nome}>{nome}, {ano}</li>
-            ))}
+            {
+                produto.cores.map((cor)=>{
+                    return <li key={cor} style={{backgroundColor: cor, color: 'white'}}>{cor}</li>
+                })
+            }
         </ul>
+        </div>
+        )
+       })
+       }
+    </section>
     )
-}
+  }
 
 export default App
