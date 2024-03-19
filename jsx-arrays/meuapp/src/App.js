@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 
 
 // Organize os produtos como mostrado no vídeo
