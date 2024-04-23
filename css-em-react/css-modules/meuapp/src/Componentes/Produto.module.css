@@ -1,0 +1,30 @@
+.titulo, .preco {
+    background-color: blueviolet;
+}
+
+@value cor: blue;
+
+.titulo {
+    color: cor; 
+    font-size: 3rem;
+    /* isso aqui em cima é variável com css modules. */
+}
+
+.preco {
+    color: green;
+}
+
+.comprarProduto {
+    composes: titulo;
+    /* isso aqui em cima é o composes do css modules*/
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+:global .container {
+    width: 400px;
+}
+/* isso aqui em cima é um estilo global com css modules */
+
+
+
