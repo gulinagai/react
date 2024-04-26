@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// npm install styled-components
+// plugin do vscode: vscode-styled-components
+
 // Styled-Component:
 
 // const Produto = styled.p`
