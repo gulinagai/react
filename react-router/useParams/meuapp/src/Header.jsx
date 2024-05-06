@@ -1,0 +1,54 @@
+import React from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+
+// Link: 
+
+// Cria uma navegação de acordo com as rotas
+
+// const Header = () => {
+//   return (
+//     <>
+//       <nav>
+//         <Link to="/">Home</Link>
+//         {' '}
+//         <Link to="sobre">Sobre</Link>
+//         {' '}
+//         <Link to="contato">Contato</Link>
+//       </nav>
+//     </>
+//   ) 
+  
+// }
+
+// NavLink:
+
+// Cria uma navegação de acordo com as rotas e adiciona a classe 'active' na rota atual:
+
+const Header = () => {
+
+  // useLocation():
+
+  // uso do useLocation()
+
+  const location = useLocation()  
+
+  React.useEffect(()=>{
+    console.log('Mudou de rota')
+  },[location])
+
+  return (
+    <>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        {' '}
+        <NavLink to="sobre">Sobre</NavLink>
+        {' '}
+        <NavLink to="contato">Contato</NavLink>
+      </nav>
+    </>
+  ) 
+  
+}
+
+
+export default Header
