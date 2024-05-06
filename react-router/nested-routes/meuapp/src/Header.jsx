@@ -3,10 +3,6 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 
 const Header = () => {
 
-  // useLocation():
-
-  // uso do useLocation():
-
   const location = useLocation()  
 
   React.useEffect(()=>{
