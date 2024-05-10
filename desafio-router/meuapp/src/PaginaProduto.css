@@ -1,0 +1,61 @@
+
+
+h2 {
+    display: inline-block;
+    
+}
+
+.preco {
+    background: rgb(117, 247, 61);
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.496); 
+    flex-shrink: 0;   
+}
+
+.descricao {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 320px auto;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    animation: toRight .3s forwards;
+    opacity: 0;
+}
+
+@keyframes toRight {
+    from {
+        transform: translateX(-20px);
+    }
+    
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+img {
+    grid-column: 1;
+    grid-row: 1;
+    width: 300px;
+    border-radius: 10px;
+    margin: 1rem;
+}
+
+.segundaImg {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.detalhesProduto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
